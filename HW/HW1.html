@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>D3 Project</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="../libs/node_modules/d3/dist/d3.min.js"></script>
+    <script src="../libs/node_modules/d3/dist/d3.js"></script>
+    <script src="js/mainHW1.js">
+    </script>
 </head>
 <body>
 
-	<script src="../libs/node_modules/d3/dist/d3.min.js"></script>
-    <script src="../libs/node_modules/d3/dist/d3.js"></script>
-	<script src="js/mainHW1.js">
 
-    </script>
     <svg width="400" height="50">
 
         <!-- Rectangle (x and y specify the coordinates of the upper-left corner -->
@@ -30,29 +30,56 @@
         <text x="260" y="25" fill="red">SVG Text</text>
         
         </svg>
-        <div>
+
             <script>
                 d3.select('body').append('p').text('Hello World!');
             </script>
-        </div>
-        <div>
             <script>
+
+
                 const provinces = ['AB', 'BC', 'MB', 'NB', 'NL', 'NT', 'NS', 'NU', 'ON', 'PE', 'QC', 'SK', 'YT'];
-                var p = d3.select('body')
+                d3.select('body')
                     .selectAll('p')
                     .data(provinces)
 	                .enter()
 	                .append('p')
-	                .text(function(d) {return d;});
+                    .text(function (d) { return d; });
+            </script>
 
-                p = d3.select('body')
-                    .selectAll('p')
-                    .data(provinces)
-                    .enter()
-                    .append('p')
-                    .text( function (d, index) {return `element: ${d} at position: ${index}`;});
+        <div>
+            <script>
+                const numericData = [1, 2, 4, 8, 16];
+
+                // Add <svg> element (drawing space)
+                const svg = d3.select('body').append('svg')
+                .attr('width', 300)
+                .attr('height', 50);
+
+                // Add rectangle
+                svg.selectAll('rect')
+                .data(numericData)
+                .enter()
+                .append('rect')
+                .attr('fill', 'red')
+                .attr('width', 50)
+                .attr('height', 50)
+                .attr('y', 0)
+                .attr('x', (d, index) => index * 60);
             </script>
         </div>
+        <div>
+            <script>
+                const sandwiches = [
+                    { name: "Thesis", price: 7.95, size: "large" },
+                    { name: "Dissertation", price: 8.95, size: "large" },
+                    { name: "Highlander", price: 6.50, size: "small" },
+                    { name: "Just Tuna", price: 6.50, size: "small" },
+                    { name: "So-La", price: 7.95, size: "large" },
+                    { name: "Special", price: 12.50, size: "small" }
+                ];
+            </script>
+        </div>
+
 
 
 </body>
